@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>OrbitCalc</title>
+    <link rel="stylesheet" href="theme/bootstrap/dist/css/bootstrap.min.css">
+    <script src="rescalc.js"></script>
+    <meta name="theme-color" content="#303030"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#b91d47">
+    <style type="text/css">
+    #output{
+      margin-top: 25px;
+    }
+    #title{
+      margin-top: 25px;
+    }
+    #subtitle{
+      margin-top: 25px;
+    }
+    .navbar-collapse.collapse {
+      display: block!important;
+    }
+    .navbar-nav>li, .navbar-nav {
+      float: left !important;
+    }
+    .navbar-nav.navbar-right:last-child {
+      margin-right: -15px !important;
+    }
+    .navbar-right {
+      float: right!important;
+    }
+    </style>
+  </head>
+  <body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" >
+      <a class="navbar-brand" href="#">OrbitCalc</a>
+
+      <div class="collapse navbar-collapse" id="navbar">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html" target="_blank">Main</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="rescalc.html">Resolution Calculator <span class="sr-only">(current)</span></a>
+          </li>
+          <!--<li class="nav-item">
+            <a class="nav-link" href="#">About</a> TODO
+          </li>-->
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container">
+      <h1 id="title">Telescope Resolution Calculator</h1>
+    </div>
+
+    <div class="container">
+      <h2 id="subtitle">Input</h2>
+    </div>
+
+    <div class="container">
+      <div class="form-group">
+        <label for="pxsize">Focal length</label>
+        <div class="form-group">
+          <div class="input-group mb-3">
+            <input type="text" id="flength" class="form-control" oninput="calc()">
+            <div class="input-group-append">
+              <span class="input-group-text">mm</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="form-group">
+        <label for="pxsize">Pixel size</label>
+        <div class="form-group">
+          <div class="input-group mb-3">
+            <input type="text" id="pxsize" class="form-control" oninput="calc()">
+            <div class="input-group-append">
+              <span class="input-group-text">microns</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="form-group">
+        <label for="pxsize">Object size (optional)</label>
+        <div class="form-group">
+          <div class="input-group mb-3">
+            <input type="text" id="size" class="form-control" oninput="calc()">
+            <div class="input-group-append">
+              <span class="input-group-text">pixels</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <h5 id="output"/>
+    </div>
+
+  </body>
+</html>

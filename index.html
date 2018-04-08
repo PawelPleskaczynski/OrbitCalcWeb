@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>OrbitCalc</title>
+    <link rel="stylesheet" href="theme/bootstrap/dist/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="main.js"></script>
+    <meta name="theme-color" content="#303030"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#b91d47">
+    <style type="text/css">
+    #output{
+      margin-top: 25px;
+    }
+    #title{
+      margin-top: 25px;
+      margin-bottom: 15px;
+    }
+    #subtitle{
+      margin-top: 25px;
+    }
+    #container2{
+      margin-top: 15px;
+    }
+    #container3{
+      margin-top: 15px;
+    }
+    #output_container{
+      margin-top: 25px;
+      margin-bottom: 25px;
+    }
+    .navbar-collapse.collapse {
+      display: block!important;
+    }
+    .navbar-nav>li, .navbar-nav {
+      float: left !important;
+    }
+    .navbar-nav.navbar-right:last-child {
+      margin-right: -15px !important;
+    }
+    .navbar-right {
+      float: right!important;
+    }
+    </style>
+  </head>
+  <body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" >
+      <a class="navbar-brand" href="#">OrbitCalc</a>
+
+      <div class="collapse navbar-collapse" id="navbar" aria-labelledby="dropdown">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="index.html">Main <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="rescalc.html" target="_blank">Resolution Calculator</a>
+          </li>
+          <!--<li class="nav-item">
+            <a class="nav-link" href="#">About</a> TODO
+          </li>-->
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container">
+      <h1 id="title">OrbitCalc</h1>
+    </div>
+
+    <div class="container" id="container1">
+      <label for="length_units">Select the unit of length</label>
+      <div>
+        <div class="btn-group btn-group-toggle" data-toggle="buttons" id="length_units">
+          <label class="btn btn-secondary active">
+            <input type="radio" name="options" id="option_m" autocomplete="off" checked="" onchange="optionm()">m</label>
+          <label class="btn btn-secondary">
+            <input type="radio" name="options" id="option_km" autocomplete="off" onchange="optionkm()">km</label>
+          <label class="btn btn-secondary">
+            <input type="radio" name="options" id="option_mi" autocomplete="off" onchange="optionmi()">mi</label>
+          <label class="btn btn-secondary">
+            <input type="radio" name="options" id="optionIft" autocomplete="off" onchange="optionft()">ft</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="container" id="container2">
+      <label for="ang_units">Select the unit of angular size</label>
+      <div>
+        <div class="btn-group btn-group-toggle" data-toggle="buttons" id="ang_units">
+          <label class="btn btn-secondary active">
+            <input type="radio" name="options" id="option_arcsec" autocomplete="off" checked="" onchange="optionarcsec()">arcseconds</label>
+          <label class="btn btn-secondary">
+            <input type="radio" name="options" id="option_deg" autocomplete="off" onchange="optiondeg()">degrees</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="container" id="output_container">
+      <div class="jumbotron">
+        <h5 id="output_distance"/>
+        <h5 id="output_height"/>
+        <h5 id="output_period"/>
+        <h5 id="output_velocity"/>
+      </div>
+    </div>
+
+    <div class="container">
+      <h3 id="subtitle">Input</h2>
+    </div>
+
+    <div class="container" id="containersize">
+      <div class="form-group">
+        <label for="real_size">Real size of the observed object</label>
+        <div class="form-group">
+          <div class="input-group mb-3">
+            <input type="text" id="size" class="form-control" oninput="calc()">
+            <div class="input-group-append">
+              <span class="input-group-text" id="size_unit">meters</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container" id="containerangsize">
+      <div class="form-group">
+        <label for="ang_size">Angular size of the object</label>
+        <div class="form-group">
+          <div class="input-group mb-3">
+            <input type="text" id="ang" class="form-control" oninput="calc()">
+            <div class="input-group-append">
+              <span class="input-group-text" id="angle_unit">arcseconds</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container" id="containerheight">
+      <div class="form-group">
+        <label for="height_input">Height of the object in the sky (optional, necessary to find orbital height)</label>
+        <div class="form-group">
+          <div class="input-group mb-3">
+            <input type="text" id="height" class="form-control" oninput="calc()">
+            <div class="input-group-append">
+              <span class="input-group-text">° above horizon</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </body>
+</html>
