@@ -199,7 +199,7 @@ function calculateForMiles(size, angle, heightangle) {
       period = period * 3600;
       var orbitalVelocity = (2 * Math.PI * (6378 + orbitalAltitudeRAW) / period);
       var angularvelocity = 2 * (Math.atan(degrees_to_radians(orbitalAltitudeRAW/(2 * orbitalVelocity))));
-      document.getElementById("output_velocity").innerHTML = "Orbital velocity: " + (orbitalVelocity * 0.621371192).toFixed(4) + " mi/s. Angular velocity: " + angularvelocity.toFixed(4) + " degrees/second";
+      document.getElementById("output_velocity").innerHTML = "Orbital velocity: " + ((orbitalVelocity * 0.621371192) * 3600).toFixed(4) + " mph (" + (orbitalVelocity * 0.621371192).toFixed(4) + " mi/s).\nAngular velocity: " + angularvelocity.toFixed(4) + " degrees/second";
     }
 
   } else {
@@ -246,7 +246,7 @@ function calculateForFeet(size, angle, heightangle) {
       period = period * 3600;
       var orbitalVelocity = (2 * Math.PI * (6378 + orbitalAltitudeRAW) / period);
       var angularvelocity = 2 * (Math.atan(degrees_to_radians(orbitalAltitudeRAW/(2 * orbitalVelocity))));
-      document.getElementById("output_velocity").innerHTML = "Orbital velocity: " + (orbitalVelocity * 0.621371192).toFixed(4) + " mi/s. Angular velocity: " + angularvelocity.toFixed(4) + " degrees/second";
+      document.getElementById("output_velocity").innerHTML = "Orbital velocity: " + ((orbitalVelocity * 0.621371192) * 3600).toFixed(4) + " mph (" + (orbitalVelocity * 0.621371192).toFixed(4) + " mi/s).\nAngular velocity: " + angularvelocity.toFixed(4) + " degrees/second";
     }
 
   } else {
