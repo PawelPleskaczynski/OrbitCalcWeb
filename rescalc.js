@@ -21,6 +21,7 @@ function calc() {
       document.getElementById("output").innerHTML = "";
     } else {
       document.getElementById("output").innerHTML = result + " arcsecs/px. Angular size of the object is " + obj_size + " arcseconds";
+      document.getElementById("ang").value = obj_size;
     }
   }
 }

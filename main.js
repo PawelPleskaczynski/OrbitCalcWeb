@@ -33,8 +33,8 @@ window.onload = function() {
   hide();
 };
 
-function calc() {
-  var real_size = Number(document.getElementById("size").value);
+function calc2() {
+  var real_size = Number(document.getElementById("size2").value);
   var ang_size = Number(document.getElementById("ang").value);
   var height_input = Number(document.getElementById("height").value);
 
@@ -130,7 +130,6 @@ function calculateForMeters(size, angle, heightangle) {
   } else {
     document.getElementById("output_distance").innerHTML = "Distance to the object: " + distance.toFixed(4) + " km";
     show();
-    window.scrollTo(0,document.body.scrollHeight);
   }
 
   if (heightangle != null) {
@@ -174,7 +173,6 @@ function calculateForMiles(size, angle, heightangle) {
   } else {
     document.getElementById("output_distance").innerHTML = "Distance to the object: " + distance.toFixed(4) + " mi";
     show();
-    window.scrollTo(0,document.body.scrollHeight);
   }
 
   if (heightangle != null) {
@@ -221,7 +219,6 @@ function calculateForFeet(size, angle, heightangle) {
   } else {
     document.getElementById("output_distance").innerHTML = "Distance to the object: " + (distance * 0.000189393939).toFixed(4) + " mi";
     show();
-    window.scrollTo(0,document.body.scrollHeight);
   }
 
   if (heightangle != null) {

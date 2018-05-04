@@ -8,6 +8,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="main.js"></script>
+    <script src="rescalc.js"></script>
     <meta name="theme-color" content="#303030"/>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <style type="text/css">
@@ -31,6 +32,20 @@
       margin-top: 25px;
       margin-bottom: 25px;
     }
+    @media only screen and (max-width: 1024px) {
+      .jumbotron {
+        width: 85%;
+      }
+    }
+    @media only screen and (min-width: 1024px) {
+      .jumbotron {
+        width: 66%;
+      }
+    }
+    .jumbotron {
+      margin: auto;
+      margin-top: 24px;
+    }
     </style>
   </head>
   <body>
@@ -43,12 +58,6 @@
 
       <div class="collapse navbar-collapse" id="navbar" aria-labelledby="dropdown">
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="#">Main <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="rescalc.html">Resolution Calculator</a>
-          </li>
           <li class="nav-item">
             <a class="nav-link" href="https://github.com/PawelPleskaczynski/OrbitCalcWeb/blob/master/README.md" target="_blank">About</a>
           </li>
@@ -57,91 +66,145 @@
     </nav>
 
     <div class="container">
-      <h1 id="title">OrbitCalc</h1>
+      <h1 id="title" style="text-align: center; vertical-align: middle;">OrbitCalc</h1>
     </div>
 
-    <div class="container" id="container1">
-      <label for="length_units">Select the unit of length</label>
-      <div>
-        <div class="btn-group btn-group-toggle" data-toggle="buttons" id="length_units">
-          <label class="btn btn-secondary active">
-            <input type="radio" name="options" id="option_m" autocomplete="off" checked="" onchange="optionm()">m</label>
-          <label class="btn btn-secondary">
-            <input type="radio" name="options" id="option_km" autocomplete="off" onchange="optionkm()">km</label>
-          <label class="btn btn-secondary">
-            <input type="radio" name="options" id="option_mi" autocomplete="off" onchange="optionmi()">mi</label>
-          <label class="btn btn-secondary">
-            <input type="radio" name="options" id="optionIft" autocomplete="off" onchange="optionft()">ft</label>
+    <div class="jumbotron">
+      <h3 style="margin-bottom: 24px;">Step 1</h1>
+        <div class="container">
+          <h2 id="subtitle">Input</h2>
         </div>
-      </div>
-    </div>
 
-    <div class="container" id="container2">
-      <label for="ang_units">Select the unit of angular size</label>
-      <div>
-        <div class="btn-group btn-group-toggle" data-toggle="buttons" id="ang_units">
-          <label class="btn btn-secondary active">
-            <input type="radio" name="options" id="option_arcsec" autocomplete="off" checked="" onchange="optionarcsec()">arcseconds</label>
-          <label class="btn btn-secondary">
-            <input type="radio" name="options" id="option_deg" autocomplete="off" onchange="optiondeg()">degrees</label>
-        </div>
-      </div>
-    </div>
-
-    <div class="container" id="output_container">
-      <div class="jumbotron">
-        <h5 id="output_distance"/>
-        <h5 id="output_height"/>
-        <h5 id="output_period"/>
-        <h5 id="output_velocity"/>
-      </div>
-    </div>
-
-    <div class="container">
-      <h3 id="subtitle">Input</h2>
-    </div>
-
-    <div class="container" id="containersize">
-      <div class="form-group">
-        <label for="real_size">Real size of the observed object</label>
-        <div class="form-group">
-          <div class="input-group mb-3">
-            <input type="text" id="size" class="form-control" oninput="calc()">
-            <div class="input-group-append">
-              <span class="input-group-text" id="size_unit">meters</span>
+        <div class="container">
+          <div class="form-group">
+            <label for="pxsize">Focal length</label>
+            <div class="form-group">
+              <div class="input-group mb-3">
+                <input type="number" id="flength" class="form-control" oninput="calc()">
+                <div class="input-group-append">
+                  <span class="input-group-text">mm</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
 
-    <div class="container" id="containerangsize">
-      <div class="form-group">
-        <label for="ang_size">Angular size of the object</label>
-        <div class="form-group">
-          <div class="input-group mb-3">
-            <input type="text" id="ang" class="form-control" oninput="calc()">
-            <div class="input-group-append">
-              <span class="input-group-text" id="angle_unit">arcseconds</span>
+        <div class="container">
+          <div class="form-group">
+            <label for="pxsize">Pixel size</label>
+            <div class="form-group">
+              <div class="input-group mb-3">
+                <input type="number" id="pxsize" class="form-control" oninput="calc()">
+                <div class="input-group-append">
+                  <span class="input-group-text">microns</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
 
-    <div class="container" id="containerheight">
-      <div class="form-group">
-        <label for="height_input">Height of the object in the sky (optional, necessary to find orbital height)</label>
-        <div class="form-group">
-          <div class="input-group mb-3">
-            <input type="text" id="height" class="form-control" oninput="calc()">
-            <div class="input-group-append">
-              <span class="input-group-text">° above horizon</span>
+        <div class="container">
+          <div class="form-group">
+            <label for="size">Object size (optional)</label>
+            <div class="form-group">
+              <div class="input-group mb-3">
+                <input type="number" id="size" class="form-control" oninput="calc()">
+                <div class="input-group-append">
+                  <span class="input-group-text">pixels</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+
+        <div class="container">
+          <h5 id="output"/>
+        </div>
     </div>
 
+    <div class="jumbotron" style="margin-bottom: 24px;">
+      <h3 style="margin-bottom: 24px;">Step 2</h1>
+      <div class="container" id="container1">
+        <label for="length_units">Select the unit of length</label>
+        <div>
+          <div class="btn-group btn-group-toggle" data-toggle="buttons" id="length_units">
+            <label class="btn btn-secondary active">
+              <input type="radio" name="options" id="option_m" autocomplete="off" checked="" onchange="optionm()">m</label>
+              <label class="btn btn-secondary">
+                <input type="radio" name="options" id="option_km" autocomplete="off" onchange="optionkm()">km</label>
+                <label class="btn btn-secondary">
+                  <input type="radio" name="options" id="option_mi" autocomplete="off" onchange="optionmi()">mi</label>
+                  <label class="btn btn-secondary">
+                    <input type="radio" name="options" id="optionIft" autocomplete="off" onchange="optionft()">ft</label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="container" id="container2">
+                <label for="ang_units">Select the unit of angular size</label>
+                <div>
+                  <div class="btn-group btn-group-toggle" data-toggle="buttons" id="ang_units">
+                    <label class="btn btn-secondary active">
+                      <input type="radio" name="options" id="option_arcsec" autocomplete="off" checked="" onchange="optionarcsec()">arcseconds</label>
+                      <label class="btn btn-secondary">
+                        <input type="radio" name="options" id="option_deg" autocomplete="off" onchange="optiondeg()">degrees</label>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="container">
+                    <h3 id="subtitle">Input</h2>
+                    </div>
+
+                    <div class="container" id="containersize">
+                      <div class="form-group">
+                        <label for="real_size">Real size of the observed object</label>
+                        <div class="form-group">
+                          <div class="input-group mb-3">
+                            <input type="number" id="size2" class="form-control" oninput="calc2()">
+                            <div class="input-group-append">
+                              <span class="input-group-text" id="size_unit">meters</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="container" id="containerangsize">
+                      <div class="form-group">
+                        <label for="ang_size">Angular size of the object</label>
+                        <div class="form-group">
+                          <div class="input-group mb-3">
+                            <input type="number" id="ang" class="form-control" oninput="calc2()">
+                            <div class="input-group-append">
+                              <span class="input-group-text" id="angle_unit">arcseconds</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="container" id="containerheight">
+                      <div class="form-group">
+                        <label for="height_input">Height of the object in the sky (optional, necessary to find orbital height)</label>
+                        <div class="form-group">
+                          <div class="input-group mb-3">
+                            <input type="number" id="height" class="form-control" oninput="calc2()">
+                            <div class="input-group-append">
+                              <span class="input-group-text">° above horizon</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="container" id="output_container">
+                      <h5 id="output_distance"/>
+                      <h5 id="output_height"/>
+                      <h5 id="output_period"/>
+                      <h5 id="output_velocity"/>
+                    </div>
+
+      </div>
   </body>
 </html>
