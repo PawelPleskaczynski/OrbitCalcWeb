@@ -38,6 +38,10 @@ function calc2() {
   var ang_size = Number(document.getElementById("ang").value);
   var height_input = Number(document.getElementById("height").value);
 
+  if (height_input > 90) {
+    document.getElementById("height").value = 90;
+  }
+
   var size_unit = document.getElementById("size_unit").innerHTML;
   var angle_unit = document.getElementById("angle_unit").innerHTML;
 
