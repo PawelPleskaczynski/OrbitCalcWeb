@@ -8,8 +8,7 @@ To use this app, you need to know three values: observed size of an object (in a
 
 ## Useful links
 
-- ["Derivation of mean orbital altitude of a spacecraft by use of optical imaging techniques"](https://drive.google.com/file/d/17UxURmchd-vHEgMrPB01-nJvhRLoUDu2/view) - our paper
-- [Orbit_Calc.jar](https://github.com/PawelPleskaczynski/Orbit_Calc/releases/download/1.2/Orbit_Calc.jar) - Java applet
+- ["Derivation of mean orbital altitude of a spacecraft by use of optical imaging techniques"](https://drive.google.com/file/d/15IGXcwFQ9YHqHjmfYhOipJRpdDXVipT2/view?usp=sharing) - our paper
 
 ## License
 ```
